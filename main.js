@@ -1,6 +1,10 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 let config = require('./config.json');
+const { addScore } = require('./util/addScore.js');
+
+
+bot.login(config.token);
 
 
 bot.on("message", async message => {
@@ -13,15 +17,13 @@ bot.on("message", async message => {
 
   switch (command) {
     case "feed":
-      const m = await message.channel.send("Ping?");
-      break;
-    case "mvp":
-      const mvp = await message.channel.send("MVP");
-      break;
-      
-    case "scoreboard":
-      const scoreboard = await message.channel.send("SCOREBOARD?");
-
+      addScore([
+        {
+          id: 1112321,
+          name: "Matt",
+          feeder: "Sam"
+        }
+      ],'Games');
       break;
 
     case "say":
@@ -35,4 +37,3 @@ bot.on("message", async message => {
 
 });
 
-bot.login(config.token);
