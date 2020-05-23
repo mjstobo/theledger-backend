@@ -6,7 +6,7 @@ if(process.env.NODE_ENV !== 'production'){
 //Imports
 const Discord = require('discord.js')
 const secret = require('./config/secret.json');
-const { addScore } = require('./util/addScore');
+const { addScore } = require('./Scores/addScore');
 
 //Inits
 const bot = new Discord.Client()
@@ -26,8 +26,10 @@ bot.on("message", async message => {
 
   switch (command) {
     case "feed":
-      let item = {reporter: "Admin", feeder: "Matt", penalty: -20};
-      addScore(item);
+      let reporter = message.author.tag;
+      let item = {reporter: reporter, feeder: "Matt", penalty: -20};
+      let balance = await addScore(item);
+      message.channel.send(`${item.feeder} has been added to the ledger. They now have lost the boys ${balance}`);
       break;
 
     case "say":
