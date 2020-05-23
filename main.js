@@ -1,29 +1,22 @@
 const Discord = require('discord.js')
+const { v4: uuidv4 } = require('uuid');
+const { addScore } = require('./util/addScore.js')
+let secret = require('./config/secret.json');
 const bot = new Discord.Client()
-let config = require('./config.json');
-const { addScore } = require('./util/addScore.js');
 
-
-bot.login(config.token);
-
+bot.login(secret.token);
 
 bot.on("message", async message => {
 
   if(message.author.bot) return;
-  if(message.content.indexOf(config.prefix) !== 0) return;
+  if(message.content.indexOf(secret.prefix) !== 0) return;
 
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(secret.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
   switch (command) {
     case "feed":
-      addScore([
-        {
-          id: 1112321,
-          name: "Matt",
-          feeder: "Sam"
-        }
-      ],'Games');
+      addScore([{ id: uuidv4(), name: "Matt", feeder: "Sam"}],'Games');
       break;
 
     case "say":
