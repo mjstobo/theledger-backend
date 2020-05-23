@@ -1,10 +1,20 @@
+//env setup
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').config()
+}
+
+//Imports
 const Discord = require('discord.js')
-const { v4: uuidv4 } = require('uuid');
-const { addScore } = require('./util/addScore.js')
-let secret = require('./config/secret.json');
+const secret = require('./config/secret.json');
+const { addScore } = require('./util/addScore');
+
+//Inits
 const bot = new Discord.Client()
+const { connectToDatabase } = require('./util/db/connectDb.js');
 
 bot.login(secret.token);
+connectToDatabase();
+console.log("logged in & db connected");
 
 bot.on("message", async message => {
 
@@ -16,7 +26,8 @@ bot.on("message", async message => {
 
   switch (command) {
     case "feed":
-      addScore([{ id: uuidv4(), name: "Matt", feeder: "Sam"}],'Games');
+      let item = {reporter: "Admin", feeder: "Matt", penalty: -20};
+      addScore(item);
       break;
 
     case "say":

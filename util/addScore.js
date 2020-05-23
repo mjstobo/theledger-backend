@@ -1,24 +1,20 @@
-const AWS = require("aws-sdk");
-const dynamodb = new AWS.DynamoDB()
-const config = require('../config/config.js');
+const Game = require('../Games/games.js');
 
-  const addScore = (item, table) => {
+const addScore = (item) => {
 
-    AWS.config.update(config.aws_local_config);
+  console.log(item);
 
-    if (item && table) {
-      var params = {
-        TableName: table,
-        Item: {
-          id: { N: item.id },
-          name: { N: item.name },
-          feeder: { N: item.feeder }
-        }
-      };
+  const newScore = new Game({
+    reporter: item.reporter,
+    feeder: item.feeder,
+    penalty: item.penalty
+  })
 
-      dynamodb.putItem(params, console.log)
-    }
-
-  }
+  newScore.save((err, result) => {
+    if(err) return handleError(err);
+    console.log(result)
+  })
+      
+}
 
 module.exports.addScore = addScore
