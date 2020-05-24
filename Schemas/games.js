@@ -3,7 +3,7 @@ const mongoose = require('mongoose'),
 
 const gamesSchema = new Schema({
         reporter: String,
-        feeder: String,
+        targetPlayer: String,
         penalty: Number
 });
 
