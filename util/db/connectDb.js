@@ -1,6 +1,6 @@
 const mongoose = require('mongoose'),
       secret = require('../../config/secret.json'),
-      mongoDB = `mongodb+srv://${secret.mongouser}:${secret.mongopw}@ledger-pkjc5.mongodb.net/theledger`,
+      mongoDB = `mongodb+srv://${secret.mongouser}:${secret.mongopw}@${secret.mongoserv}.mongodb.net/theledger`,
       db = mongoose.connection;
 
 

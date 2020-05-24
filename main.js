@@ -36,6 +36,7 @@ bot.on("message", async message => {
       break;
 
     default:
+      message.channel.send("Command not recognised, herald brain.");
       break;
   }
 
