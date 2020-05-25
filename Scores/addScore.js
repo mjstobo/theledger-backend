@@ -19,9 +19,9 @@ const addScore = async (item) => {
 
 const updatePlayer = async (item) => {
   let player = await Player.findOneAndUpdate(
-    {name: item.feeder}, 
+    {name: item.targetPlayer}, 
     {$inc: {feedBalance: item.penalty, count: 1}},
-    {$setOnInsert: {name: item.feeder, feedBalance: item.penalty, count: 1}, upsert: true, new: true}
+    {$setOnInsert: {name: item.targetPlayer, feedBalance: item.penalty, count: 1}, upsert: true, new: true}
   );
   
   return player.feedBalance;
