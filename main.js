@@ -51,7 +51,7 @@ const parseMessage = async (message, isFeed) => {
   }
 
   let reporter = message.author.tag;
-  let item = { reporter: reporter, targetPlayer: player.tag, penalty: isFeed ? 20 : -20 };
+  let item = { reporter: reporter, targetPlayer: player.tag, penalty: isFeed ? -20 : 20 };
   let balance = await addScore(item);
   let embed = new MessageEmbed()
 
