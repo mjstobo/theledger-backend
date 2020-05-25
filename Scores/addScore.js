@@ -28,5 +28,4 @@ const updatePlayer = async (item) => {
 
 }
 
-
 module.exports.addScore = addScore
