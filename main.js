@@ -39,14 +39,14 @@ bot.on("message", async message => {
     case "ladder":
       const ladderResponse = await getLadder();
       console.log(ladderResponse);
-      let ladderMap = ladderResponse.map((e, i) => {return {name: `${i + 1}`, value: `${e.name}: ${e.feedBalance}`}});
+      let ladderMap = ladderResponse.map((e, i) => {return {name: `#${i + 1}`, value: `${e.name}: [ **${e.feedBalance}** ]`}});
       console.log(ladderMap);
       const embed = new MessageEmbed()
-      .setTitle('The Ledger Ladder')
+      .setTitle(':sparkles: The Ledger Ladder :sparkles:')
       .addFields(ladderMap)
       .setColor('#7cd992')
-      .setDescription('..yep')
-      .setFooter('stop feeding, christ');
+      .setDescription(':sparkles::sparkles::sparkles::sparkles::sparkles::sparkles::sparkles::sparkles::sparkles:')
+      .setFooter(':ClockCry112::wyverngun: ...stop feeding, christ :wyverngun::ClockCry112:');
 
       message.channel.send(embed);
 
