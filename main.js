@@ -46,7 +46,7 @@ bot.on("message", async message => {
       .addFields(ladderMap)
       .setColor('#7cd992')
       .setDescription(':sparkles::sparkles::sparkles::sparkles::sparkles::sparkles::sparkles::sparkles::sparkles:')
-      .setFooter(':ClockCry112::wyverngun: ...stop feeding, christ :wyverngun::ClockCry112:');
+      .setFooter(':rage::rage: ...stop feeding, christ :rage::rage:');
 
       message.channel.send(embed);
 
