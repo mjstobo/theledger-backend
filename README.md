@@ -1,29 +1,5 @@
-# README #
+# The Ledger
 
-This README would normally document whatever steps are necessary to get your application up and running.
+A Discord Bot that allows users to keep track (maintain a ledger, including ladderboard and score persistence) of users that win or lose the group ranking points (MMR) in DoTA2. 
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Deployed to an AWS EC2 and leveraging MongoDB (hosted via MongoDB Atlas) for persistence. Leverages the Discord APIs for interacting with Discord communities. 
